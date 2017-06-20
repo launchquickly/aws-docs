@@ -1,7 +1,6 @@
-AWS Platform
-============
+# AWS Platform
 
-# AWS Global Infrastructure
+## AWS Global Infrastructure
 
 Regions - Geographical area in the world where AWS resources exist, with 2 or more Availability Zones  
 Availability Zone - logical Data Center  
@@ -21,7 +20,7 @@ Direct Connect - connect physical data centers to AWS
 
 ## Compute
 
-EC2 - Elastic Compute Cloud  
+[EC2](/EC2.md) - Elastic Compute Cloud  
     - VMs  
 EC2 Container Service - container management service supporting Docker  
 Elastic Beanstalk - provision infrastructure based on type of application  
