@@ -23,7 +23,8 @@ Dedicated Hosts - regulatory requirements
 Spot - if instance is terminated by Amazon for partial hour you will not be billed for that hour  
      - if instance is terminated by you for partial hour then you will be billed for that hour   
 
-# EC2 Instance Types
+## EC2 Instance Types
+
 D2 Dense Storage
 R4 Memory Optimised
 M4 General Purpose
@@ -38,12 +39,24 @@ X1 Memory Optimised
 Anagram to remember different instance types:
     Dr Mc GIFT PX  
 
+## EBS
 
+Elastic Block Storage  
 
+- Storage volumes attached to EC2 instances
+- Block based storage so can run applications
+- Placed in specific Availability Zone
+- Automatically replicated within Availabilty Zone to prevent single component failure
 
+### Types
 
+- General Purpose SSD (GP2)  10,000 IOPS
+- Provisioned IOPS SSD (IO1) More than 10,000 IOPS
+- Throughput Optimised HDD (ST1) Frequently accessed
+- Cold HDD (SC1) Less frequently accessed
+- Magnetic (Standard) Standard, cheap and infrequently accessed
 
-
+** You cannot mount 1 EBS volume to multiple EC2 instances, consider EFS  
 
 
 
