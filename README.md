@@ -1,2 +1,2 @@
 # aws-docs
-Documentation on the AWS platform
+[AWS platform](/platform.md)
