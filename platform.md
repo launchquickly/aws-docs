@@ -64,7 +64,7 @@ Quick Sight - Business Analytics Tool with visualisations and dashboards
 
 ## Security and Identity
 
-IAM - User, authentication and authorisation service  
+[IAM](/IAM.md) - User, authentication and authorisation service  
 Inspector - installed on VMs and performs security inspection  
 Certificate Management - Free SSL certs for Domain names  
 Directory Service - connects Active Directory to AWS  
