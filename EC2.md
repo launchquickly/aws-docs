@@ -56,8 +56,26 @@ Elastic Block Storage
 - Cold HDD (SC1) Less frequently accessed
 - Magnetic (Standard) Standard, cheap and infrequently accessed
 
+
+Cold HDD and Throughput Optimised HDD cannot be attached to Root volume  
+
+By default when deleting EC2 instance the attached EBS volumes will be deleted also as 'Delete on Termination' option checked by default.  
+
 ** You cannot mount 1 EBS volume to multiple EC2 instances, consider EFS  
 
+## Network Options 
+
+- Automatically created Default VPC is default network
+- One subnet equals one Availability Zone  
+
+Security Groups are virtual firewalls that allow you to restrict access to EC2 instances on Protocol, Port, and Source IPs  
+
+Key Pairs (public/private) are used to authorize access to EC2 instances  
+
+### SSH to instance
+
+- chmod 400 permissions set on key
+- To login: ssh ec2-user@public_ip_address -i keyName.pem
 
 
 
