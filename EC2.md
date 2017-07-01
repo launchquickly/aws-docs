@@ -67,17 +67,39 @@ By default when deleting EC2 instance the attached EBS volumes will be deleted a
 
 ** You cannot mount 1 EBS volume to multiple EC2 instances, consider EFS  
 
+### Mounting filesystem
+
+on AWS Linux image   
+
+- mkfs -t ext3 /dev/xvdb - make filesystem
+- mkdir /dirname - directory to mount to
+- mount /dev/xvdb/ /dirname - mount directory
+
+To unmount: umount /dev/xvdb  
+
+
 ## Network Options 
 
 - Automatically created Default VPC is default network
 - One subnet equals one Availability Zone  
 
-Security Groups are virtual firewalls that allow you to restrict access to EC2 instances on Protocol, Port, and Source IPs  
-
 Key Pairs (public/private) are used to authorize access to EC2 instances  
+
+### Security Groups
+
+Security Groups are virtual firewalls that allow you to restrict access to EC2 instances on Protocol, Port Range, and Source IPs  
+
+- One EC2 instance can be associated with 1 or more Security Groups.  
+- There are 'Inbound' and 'Outbound' rules.  
+- All Inbound traffic is Blocked by default
+- All Outbound traffic is Allowed by default
+- Security Groups are 'stateful' which means that any Inbound rule a mirror Outbound rule is added.  
+- Outbound rules include Destination IP range in addtion to those in Inbound rules.  
+- Cannot add 'deny' rules only allow.  
 
 ### SSH to instance
 
+- Requires key pair for instances associated Security Group that allows SSH
 - chmod 400 permissions set on key
 - To login: ssh ec2-user@public_ip_address -i keyName.pem
 
