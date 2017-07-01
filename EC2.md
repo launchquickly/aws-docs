@@ -48,6 +48,10 @@ Elastic Block Storage
 - Placed in specific Availability Zone
 - Automatically replicated within Availabilty Zone to prevent single component failure
 
+Root devices cannot be encrypted by standard but can be if you create own AMI and encrypt the root device when you create the AMI.  
+
+Additional volumes can be encrypted.  
+
 ### Types
 
 - General Purpose SSD (GP2)  10,000 IOPS
@@ -59,7 +63,7 @@ Elastic Block Storage
 
 Cold HDD and Throughput Optimised HDD cannot be attached to Root volume  
 
-By default when deleting EC2 instance the attached EBS volumes will be deleted also as 'Delete on Termination' option checked by default.  
+By default when deleting EC2 instance the attached EBS volumes will be deleted also as 'Delete on Termination' Termination Protection option checked by default.  
 
 ** You cannot mount 1 EBS volume to multiple EC2 instances, consider EFS  
 
@@ -77,5 +81,9 @@ Key Pairs (public/private) are used to authorize access to EC2 instances
 - chmod 400 permissions set on key
 - To login: ssh ec2-user@public_ip_address -i keyName.pem
 
+### Status Checks
+
+System Status - verify instance is reachable.  
+Instance Status - verify instance reachable and instance is up at OS level.  
 
 
