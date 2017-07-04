@@ -60,12 +60,18 @@ Additional volumes can be encrypted.
 - Cold HDD (SC1) Less frequently accessed
 - Magnetic (Standard) Standard, cheap and infrequently accessed
 
-
 Cold HDD and Throughput Optimised HDD cannot be attached to Root volume  
 
 By default when deleting EC2 instance the attached EBS volumes will be deleted also as 'Delete on Termination' Termination Protection option checked by default.  
 
 ** You cannot mount 1 EBS volume to multiple EC2 instances, consider EFS  
+
+EBS volumes can be changed on the fly (except for magnetic standard).  
+
+You can scale EBS Volumes up only.
+Volumes must be in the same AZ as the EC2 instances
+
+To change a Volume Type to magnetic standard you must create a Snapshot and use it to create a new volume which let you pick a new Volume Type. You should stop your EC2 instanced during this to ensure that data is not updated whilst changing volume types.  
 
 ### Mounting filesystem
 
@@ -77,6 +83,18 @@ on AWS Linux image
 
 To unmount: umount /dev/xvdb  
 
+## EFS
+Elastic File System  
+
+Storage capacity is elastic, growing and shrinking as files are added or removed.
+
+- NFSv4 protocol
+- Pay for storage as you go
+- Scale up to petabytes
+- Can support thousands of concurrent NFS connections
+- Data is stored across multiple AZ's within a region
+- Read After Write Consistency
+- Can be mounted on multiple EC2 instances
 
 ## Network Options 
 
