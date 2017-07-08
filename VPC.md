@@ -6,12 +6,24 @@ It is a logical data center, effectively a virtual network. Selection of your ow
 
 - VPCs do not span Regions but can span Availability Zones
 - Maximum addressable IP range is /16
+- CIDR block - Classless Inter Domain Routing - used to specify IP addresses
+
+When creating a new VPC by default the following are created:
+- Main route table
+- Security Group
+- Network ACL
+
+the following are NOT created:
+- Subnets
+- Internet Gateway
+
 
 ## Default VPC
 
 - Provided for each region for each account
 - All Subnets have route to internet 
 - if you delete VPC only way to restore is to contact AWS for support
+- Tenancy - default (shared) or Dedicated
 
 ## VPC Peering
 
@@ -34,6 +46,8 @@ Connect one VPC with another via a direct network route using private IP address
 ## Route Tables
 
 - Configured between subnets
+- Destination => Target (CIDR block => instance Id)
+- Default Route Table has not route out to Internet
 
 ## Network Access Control Lists
 
@@ -42,11 +56,16 @@ Connect one VPC with another via a direct network route using private IP address
 ## Security Group
 
 - Stateful - inbound rules mirrored by outbound
+- Defines Type, Protocol, Port Range and Source (one of CIDR, Security Group, IP address) combination allowed
 
 ## Subnets
 
-- Assign IP address ranges to
+- Added to VPC
+- Assign IP address ranges to (CIDR block)
 - 1 Subnet = 1 Availability Zone
+- Can be Private or Public Subnet
+- Private IP address assigned by default
+- Public IP address can be added to all instance if auto-assign Pubic IP address is turned on for Subnet
 
 
 
