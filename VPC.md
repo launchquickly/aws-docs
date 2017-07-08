@@ -57,6 +57,7 @@ Connect one VPC with another via a direct network route using private IP address
 
 - Stateful - inbound rules mirrored by outbound
 - Defines Type, Protocol, Port Range and Source (one of CIDR, Security Group, IP address) combination allowed
+- 
 
 ## Subnets
 
@@ -67,6 +68,27 @@ Connect one VPC with another via a direct network route using private IP address
 - Private IP address assigned by default
 - Public IP address can be added to all instance if auto-assign Pubic IP address is turned on for Subnet
 
+## NAT
 
+Network Address Translation  
+
+### NAT Instances
+
+- Available on Community Marketplace
+- Deploy into Public subnet
+- Requires Security Group
+- Disable Source/Destination Check on Instance as acting as proxy
+- Requires Route Table rule (Destination) 0.0.0.0/0 => (Target) NAT Instance Id (route out)
+- Amount of traffice that NAT instance can supports, depends on instance size
+- Problem: Single Point of Failure
+
+### NAT Gateway
+
+- Scales automatically and highly available
+- No patching required
+- Deploy into Public subnet
+- Automatically assigned public IP address
+- No Security Group
+- Requires Route Table rule (Destination) 0.0.0.0/0 => (Target) NAT Gateway Id
 
 
